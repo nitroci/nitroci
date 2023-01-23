@@ -17,8 +17,13 @@ commands:
     description: Test
     steps:
       - scripts: 
-          - go test -v  ./... -coverprofile=coverage.out
-  - name: test-coverage
+          - go test -v  ./...
+  - name: test-cover
+    description: Test
+    steps:
+      - scripts: 
+          - go test -cover ./...
+  - name: test-html-cover
     description: Test
     steps:
       - scripts: 
