@@ -1,0 +1,10 @@
+version: 1
+workspace:
+  id: 81ad0573bfd14a11bf5bec9d61e45ebc
+  name: nitroci
+commands:
+  - name: install
+    description: Install dependencies
+    steps:
+      - scripts: 
+          - go get -u -v  all
