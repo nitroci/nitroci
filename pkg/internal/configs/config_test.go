@@ -5,12 +5,21 @@ import (
   "github.com/stretchr/testify/assert"
 )
 
-func TestSomething(t *testing.T) {
+func TestEnsureConfigurationFailIfNotExist(t *testing.T) {
   assert := assert.New(t)
 
-  // assert equality
-  assert.Equal(123, 123, "they should be equal")
+  cfgfile, err := EnsureConfiguration("./.nitroci/config.ini")
 
-  // assert inequality
-  assert.NotEqual(123, 456, "they should not be equal")
+  assert.NotNil(err)
+  assert.Empty(cfgfile)
+}
+
+func Add(x, y int) (res int) {
+	return x + y
+}
+
+func BenchmarkAdd(b *testing.B){
+    for i :=0; i < b.N ; i++{
+        Add(4, 6)
+    }
 }

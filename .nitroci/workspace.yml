@@ -8,3 +8,19 @@ commands:
     steps:
       - scripts: 
           - go get -u -v  all
+  - name: bench
+    description: Test
+    steps:
+      - scripts: 
+          - go test -v  ./... -bench=. 
+  - name: test
+    description: Test
+    steps:
+      - scripts: 
+          - go test -v  ./... -coverprofile=coverage.out
+  - name: test-coverage
+    description: Test
+    steps:
+      - scripts: 
+          - go test -v  ./... -coverprofile=coverage.out
+          - go tool cover -html=coverage.out
